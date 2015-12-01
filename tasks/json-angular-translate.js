@@ -123,7 +123,7 @@ module.exports = function (grunt) {
         language = currLanguage;
 
         var processor = (options.createNestedKeys ? unflatten : reverse);
-        src = deepmerge(processor(JSON.parse(grunt.file.read(filepath))));
+        src = deepmerge(processor(JSON.parse(grunt.file.read(filepath))), src);
       }).reduce(extend, {});
 
       src = grunt.template.process(multiline(function(){/*
